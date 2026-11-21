@@ -1,25 +1,24 @@
-Ticket Auto Flow - Fast v2.7.2
+# Ticket Auto Flow — Fast
 
-What it does
-- After you enter the CAPTCHA, clicks Continue using a trusted Chrome Debugger mouse event
-  (avoids isTrusted=false rejection / 403 that normal script clicks can trigger)
-- Selects ICICI Bank (input[name="iciciBank"])
-- Clicks #edonation_paynow
-- Stops at the final payment page (OTP / UPI / card stay manual)
+A Chrome Manifest V3 helper for the TTD ticket page and localhost testing.
 
-Important
-- Chrome will show a banner: "Extension is debugging this browser"
-  This is required for trusted clicks. It disappears when you Stop or close the tab.
-- CAPTCHA, OTP and final payment authorization always stay manual.
+## What it does
+- Waits for you to enter and submit CAPTCHA; CAPTCHA solving remains manual.
+- Clicks Continue after the page enables it.
+- Selects ICICI Bank when its radio option or associated label is present.
+- Clicks Pay Now when enabled, then stops at the payment gateway.
+- OTP and final payment authorization remain manual.
 
-Supported pages
-- https://tirupatibalaji.ap.gov.in/*
-- http://localhost:3000/* and http://127.0.0.1:3000/*
+The extension responds to page changes and checks briefly while waiting for a control to become enabled. Navigation still depends on the TTD site and its server response; the extension cannot make that happen instantly or skip site validation.
 
-Install
-1. Extract this ZIP
-2. Chrome -> chrome://extensions -> enable Developer mode
-3. Click "Load unpacked" and select the INNER folder named ticket_auto_extension_fast
-4. Accept the debugger permission if Chrome asks
-5. Open or reload your ticket page
-6. Click the extension icon -> Start Automation
+## Supported pages
+- `https://tirupatibalaji.ap.gov.in/*`
+- `http://localhost:3000/*` and `http://127.0.0.1:3000/*`
+
+## Install
+1. Open `chrome://extensions` and enable Developer mode.
+2. Choose **Load unpacked** and select this repository folder.
+3. Open or reload a supported ticket page, then click the extension icon and **Start Automation**.
+4. Enter CAPTCHA manually. Complete OTP and payment manually.
+
+The extension uses Chrome's Debugger API for trusted page clicks. Chrome displays its debugging banner while attached; use **Stop Automation** to detach.
