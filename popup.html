@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ticket Auto Flow</title>
+<style>
+body{width:300px;margin:0;padding:16px;font-family:Arial,sans-serif;background:#f7f7f8;color:#222}
+h2{margin:0 0 6px;font-size:18px}p{margin:0 0 14px;color:#666;font-size:12px}
+.status{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px;margin-bottom:12px}
+.phase{font-weight:700;margin-bottom:5px}.message{font-size:12px;color:#555;line-height:1.4}
+button{width:100%;border:0;border-radius:8px;padding:11px;margin-top:7px;cursor:pointer;font-weight:700}
+#start{background:#1f7a45;color:#fff}#stop{background:#b42318;color:#fff}
+.note{margin-top:12px;font-size:11px;color:#666;line-height:1.4}
+.warn{margin-top:8px;font-size:11px;color:#8a4b00;background:#fff8e6;border:1px solid #f0d78c;border-radius:6px;padding:8px}
+</style>
+</head>
+<body>
+<h2>Ticket Auto Flow — Fast</h2>
+<p>TTD / localhost · v2.7.2</p>
+<div class="status"><div class="phase" id="phase">Checking...</div><div class="message" id="message">Connecting...</div></div>
+<button id="start">Start Automation</button>
+<button id="stop">Stop Automation</button>
+<div class="note">Continue uses a trusted Debugger click.<br>ICICI Bank + Pay Now are automated.<br>CAPTCHA, OTP and final payment stay manual.</div>
+<div class="warn">Chrome may show “Extension is debugging this browser” while Continue is clicked. That is expected for trusted clicks.</div>
+<script src="popup.js"></script>
+</body>
+</html>

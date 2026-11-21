@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Ticket Auto Flow - Fast",
+  "version": "2.7.2",
+  "description": "TTD / localhost automation. Uses trusted Debugger click for Continue and Pay Now. CAPTCHA, OTP and final payment stay manual.",
+  "permissions": ["tabs", "scripting", "storage", "webNavigation", "debugger"],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "http://127.0.0.1:3000/*",
+    "https://tirupatibalaji.ap.gov.in/*"
+  ],
+  "action": { "default_popup": "popup.html" },
+  "background": { "service_worker": "service_worker.js" },
+  "content_scripts": [{
+    "matches": [
+      "http://localhost:3000/*",
+      "http://127.0.0.1:3000/*",
+      "https://tirupatibalaji.ap.gov.in/*"
+    ],
+    "js": ["content.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }]
+}
